@@ -34,25 +34,28 @@
         <div>
             Порода кошки <br />
             <select name="breed" id="breed">
-                <option value="1">абиссинская</option>
-                <option value="2">британская</option>
-                <option value="3">мейн-кун</option>
-                <option value="4">персидская</option>
+                <option value="empty" selected></option>
+                <option value="abyssinian">абиссинская</option>
+                <option value="british">британская</option>
+                <option value="maine coon">мейн-кун</option>
+                <option value="persian">персидская</option>
             </select>
         </div>
         <div>
-            Чем питается?<br />
-            <input type="checkbox" />
-            сухой корм<br />
-            <input type="checkbox" />
-            влажный корм<br />
-            <input type="checkbox" />
-            натуральный корм<br />
+            Пол питомца<br />
+            <label for="female">Самка</label>
+            <input type="radio" name="sex" id="female" value="female" /></br>
+            <label for="male">Самец</label>
+            <input type="radio" name="sex" id="male" value="male" />
         </div>
         <div>
-            Пол питомца<br />
-            <input type="radio" name="sex" />Самка<br />
-            <input type="radio" name="sex" />Самец
+            Чем питается?<br />
+            <input type="checkbox" name="food_type" id="dry" value="dry" />
+            сухой корм<br />
+            <input type="checkbox" name="food_type" id="wet" value="wet" />
+            влажный корм<br />
+            <input type="checkbox" name="food_type" id="natural" value="natural" />
+            натуральный корм<br />
         </div>
         <div>
             Комментарий владельца<br />
@@ -69,11 +72,13 @@
 
     <script>
         class Cat {
-            constructor(petName, ownerName, ownerPhone, breed) {
+            constructor(petName, ownerName, ownerPhone, breed, sex, foodTypeArr) {
                 this.petName = petName;
                 this.ownerName = ownerName;
                 this.ownerPhone = ownerPhone;
                 this.breed = breed;
+                this.sex = sex;
+                this.foodTypeArr = foodTypeArr;
             }
         }
 
@@ -84,7 +89,23 @@
             const ownerPhone = document.getElementById('phone').value;
             const breed = document.getElementById('breed').value;
 
-            let cat = new Cat(petName, ownerName, ownerPhone, breed);
+            const sexAll = document.getElementsByName('sex');
+            let sex = 0;
+            sexAll.forEach(element => {
+                if (element.checked) {
+                    sex = `${element.id}`;
+                }
+            })
+
+            const foodTypes = document.getElementsByName('food_type');
+            let foodTypeArr = [];
+            for (let foodType of foodTypes) {
+                if (foodType.checked) {
+                    foodTypeArr.push(foodType.id);
+                }
+            }
+
+            let cat = new Cat(petName, ownerName, ownerPhone, breed, sex, foodTypeArr);
             console.log(cat);
         })
     </script>
