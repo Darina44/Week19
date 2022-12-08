@@ -63,7 +63,7 @@
             <input type="file">
         </div>
         <div>
-            <button onclick="setNewCat()">Сохранить</button>
+            <button type="button" onclick="setNewCat()">Сохранить</button>
         </div>
     </form>
 
@@ -77,8 +77,14 @@
             }
         }
 
+        let breed = document.getElementById('breed').value;
 
         function setNewCat() {
+            let name = document.getElementById('name').value;
+            let nameOwner = document.getElementById('name1').value;
+            let ownerPhone = document.getElementById('phone').value;
+            let breed = document.getElementById('breed').value;
+
             let cat = new Cat('dfg', 'fdgd', '124', 'dsf');
             console.log(cat);
         }
