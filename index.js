@@ -93,6 +93,6 @@ class Validation {
 }
 
 if (Validation.CheckEmpty(document.getElementsByClassName('test)'))) {
-    //есть пустой эдемент
+    //есть пустой элемент
     alert('Есть пустой элемент!');
 }

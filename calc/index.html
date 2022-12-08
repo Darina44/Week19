@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/calc/style.css">
-    <script src="/calc/index.js"></script>
 </head>
 
 <body>
@@ -30,23 +28,27 @@
     </div>
 
     <script>
-    сlass Calculator {
-            static calcSum(num1, num2) {
+        class Calculator {
+            constructor(num1, num2) {
+                this.num1 = num1;
+                this.num2 = num2;
+            }
+
+            static sum(num1, num2) {
                 return num1 + num2;
             }
-            static calcDiff(num1, num2) {
+            static diff(num1, num2) {
                 return num1 - num2;
             }
-            static calcMult(num1, num2) {
+            static mult(num1, num2) {
                 return num1 * num2;
             }
-            static calcDiv(num1, num2) {
+            static divide(num1, num2) {
                 return num1 / num2;
             }
         }
 
-        let calc = new Calculator();
-        calc.calcSum(5, 3)
+        let calc = new Calculator(3, 5);
 
         var op;
 
