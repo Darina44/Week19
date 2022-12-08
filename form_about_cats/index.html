@@ -18,7 +18,7 @@
     <form>
         <div>
             <label for="name" maxlength="10">Кличка питомца</label>
-            <input type="text" id="nameCat" required />
+            <input type="text" id="petName" required />
         </div>
         <fieldset>
             <legend>Имя и контакты владельца</legend>
@@ -63,31 +63,30 @@
             <input type="file">
         </div>
         <div>
-            <button type="button" onclick="setNewCat()">Сохранить</button>
+            <button type="button" id="btn">Сохранить</button>
         </div>
     </form>
 
     <script>
         class Cat {
-            constructor(name, ownerName, ownerPhone, breed) {
-                this.name = name;
+            constructor(petName, ownerName, ownerPhone, breed) {
+                this.petName = petName;
                 this.ownerName = ownerName;
                 this.ownerPhone = ownerPhone;
                 this.breed = breed;
             }
         }
 
-        let breed = document.getElementById('breed').value;
+        document.getElementById('btn').addEventListener('click', (e) => {
+            e.preventDefault()
+            const petName = document.getElementById('petName').value;
+            const ownerName = document.getElementById('name1').value;
+            const ownerPhone = document.getElementById('phone').value;
+            const breed = document.getElementById('breed').value;
 
-        function setNewCat() {
-            let name = document.getElementById('name').value;
-            let nameOwner = document.getElementById('name1').value;
-            let ownerPhone = document.getElementById('phone').value;
-            let breed = document.getElementById('breed').value;
-
-            let cat = new Cat('dfg', 'fdgd', '124', 'dsf');
+            let cat = new Cat(petName, ownerName, ownerPhone, breed);
             console.log(cat);
-        }
+        })
     </script>
 </body>
 
