@@ -30,16 +30,16 @@
 
         class Calculator {
             static add(num1, num2) {
-                console.log(Number(document.getElementById('num1').value) + Number(document.getElementById('num2').value));
+                console.log(+(document.getElementById('num1').value) + +(document.getElementById('num2').value));
             }
             static subtract(num1, num2) {
-                console.log(Number(document.getElementById('num1').value) - Number(document.getElementById('num2').value));
+                console.log(+(document.getElementById('num1').value) - +(document.getElementById('num2').value));
             }
             static multiply(num1, num2) {
-                console.log(Number(document.getElementById('num1').value) * Number(document.getElementById('num2').value));
+                console.log(+(document.getElementById('num1').value) * +(document.getElementById('num2').value));
             }
             static divide(num1, num2) {
-                console.log(Number(document.getElementById('num1').value) / Number(document.getElementById('num2').value));
+                console.log(+(document.getElementById('num1').value) / +(document.getElementById('num2').value));
             }
         }
 
