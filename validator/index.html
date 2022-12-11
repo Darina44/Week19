@@ -17,21 +17,24 @@
 
 
         class Validator {
-            constructor(string) {
-                this.string = string;
+            constructor(email, domain, date, phone) {
+                this.email = email;
+                this.domain = domain;
+                this.date = date;
+                this.phone = phone;
             }
 
             isEmail() {
-                this.string.match(validEmail) ? true : false;
+                this.email.match(validEmail) ? true : false;
             }
-            isDomain = () => {
-                this.string.match(validDomain) ? true : false;
+            isDomain = (domain) => {
+                this.domain.match(validDomain) ? true : false;
             }
-            isDate = () => {
-                this.string.match(validDate) ? true : false;
+            isDate = (date) => {
+                this.date.match(validDate) ? true : false;
             }
-            isPhone = () => {
-                this.string.match(validPhone) ? true : false;
+            isPhone = (phone) => {
+                this.phone.match(validPhone) ? true : false;
             }
         }
 
@@ -45,12 +48,12 @@
             static isPhone = (phone) => (phone.match(validPhone)) ? true : false;
         }
 
-        let validator = new Validator('alisa@mail.ru');
+        let validator = new Validator('alisa@mail.ru', 'itgirlschool.ru', '12.05.2021', '+7(910)123-45-67');
 
-        console.log(validator.isEmail('alisa@mail.ru'));
-        console.log(validator.isDomain('itgirlschool.ru'));
-        console.log(validator.isDate('12.05.2021'));
-        console.log(validator.isPhone('+7(910)123-45-67'))
+        console.log(validator.isEmail());
+        console.log(validator.isDomain());
+        console.log(validator.isDate());
+        console.log(validator.isPhone())
 
         console.log(ValidatorStatic.isEmail('alisa@mail.ru'));
         console.log(ValidatorStatic.isDomain('itgirlschool.ru'));
