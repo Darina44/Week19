@@ -15,7 +15,6 @@
         const validDate = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
         const validPhone = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
 
-
         class Validator {
             constructor(email, domain, date, phone) {
                 this.email = email;
@@ -24,17 +23,33 @@
                 this.phone = phone;
             }
 
-            isEmail() {
-                this.email.match(validEmail) ? true : false;
+            isEmail(a) {
+                if (validEmail.test(a) === true) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            isDomain = (domain) => {
-                this.domain.match(validDomain) ? true : false;
+            isDomain(a) {
+                if (validDomain.test(a) === true) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            isDate = (date) => {
-                this.date.match(validDate) ? true : false;
+            isDate = (a) => {
+                if (validDate.test(a) === true) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            isPhone = (phone) => {
-                this.phone.match(validPhone) ? true : false;
+            isPhone = (a) => {
+                if (validPhone.test(a) === true) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         }
 
@@ -48,12 +63,12 @@
             static isPhone = (phone) => (phone.match(validPhone)) ? true : false;
         }
 
-        let validator = new Validator('alisa@mail.ru', 'itgirlschool.ru', '12.05.2021', '+7(910)123-45-67');
+        let validator = new Validator();
 
-        console.log(validator.isEmail());
-        console.log(validator.isDomain());
-        console.log(validator.isDate());
-        console.log(validator.isPhone())
+        console.log(validator.isEmail('alisa@mail.ru'));
+        console.log(validator.isDomain('itgirlschool.ru'));
+        console.log(validator.isDate('12.05.2021'));
+        console.log(validator.isPhone('+7(910)123-45-67'));
 
         console.log(ValidatorStatic.isEmail('alisa@mail.ru'));
         console.log(ValidatorStatic.isDomain('itgirlschool.ru'));
